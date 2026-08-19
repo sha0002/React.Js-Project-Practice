@@ -4,6 +4,7 @@ import Todo from './Todo/Todo'
 import Posts from './crud/Posts'
 import Cal from './Calculator/Cal'
 import Todos from './Todos/todos'
+import UseMemo from './UseMemo/UseMemo'
 // import MyComponent from './Todo/Timeset'
 // import TodoAgain from './Todo/Todo-Again'
 // import Posts from './crud system/Posts'
@@ -20,10 +21,11 @@ function App() {
       {/* <TodoAgain /> */}
       {/* Crud Operator */}
       {/* <Posts /> */}
-
       {/* <Cal /> */}
 
-      <Todos />
+      {/* <Todos /> */}
+
+      <UseMemo />
 
 
 
