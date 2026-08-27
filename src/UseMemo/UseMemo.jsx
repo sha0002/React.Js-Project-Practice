@@ -24,6 +24,9 @@ export default function UseMemo() {
     return (
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div className='py-5'>
+
+                <h2 className='text-light mb-5'>Use Memo Practice</h2>
+
                 <input type="number" onChange={(e) => setInput(e.target.value)} />
                 <p className='text-light text-center m-0 fs-3'>Count: {count}</p>
                 <button type="button" className='py-2 px-4 my-4 btn btn-outline-light' onClick={() => setCount(count + 1)} >Increament</button>

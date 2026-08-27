@@ -5,6 +5,8 @@ import Posts from './crud/Posts'
 import Cal from './Calculator/Cal'
 import Todos from './Todos/todos'
 import UseMemo from './UseMemo/UseMemo'
+import { Counter } from './UseContext/Counter'
+import { BioProvider } from './UseContext/ContextPrac'
 // import MyComponent from './Todo/Timeset'
 // import TodoAgain from './Todo/Todo-Again'
 // import Posts from './crud system/Posts'
@@ -25,7 +27,11 @@ function App() {
 
       {/* <Todos /> */}
 
-      <UseMemo />
+      {/* <UseMemo /> */}
+
+      <BioProvider>
+        <Counter />
+      </BioProvider>
 
 
 
