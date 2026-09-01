@@ -7,6 +7,8 @@ import Todos from './Todos/todos'
 import UseMemo from './UseMemo/UseMemo'
 import { Counter } from './UseContext/Counter'
 import { BioProvider } from './UseContext/ContextPrac'
+import { Ecom } from './E-Commerce/Ecom'
+import { CartProvider } from './E-Commerce/Content/context'
 // import MyComponent from './Todo/Timeset'
 // import TodoAgain from './Todo/Todo-Again'
 // import Posts from './crud system/Posts'
@@ -29,10 +31,15 @@ function App() {
 
       {/* <UseMemo /> */}
 
-      <BioProvider>
+      {/* <BioProvider>
         <Counter />
-      </BioProvider>
+      </BioProvider> */}
 
+
+
+      <CartProvider>
+        <Ecom />
+      </CartProvider>
 
 
     </>
