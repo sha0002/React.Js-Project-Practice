@@ -8,25 +8,25 @@ export const useCart = () => useContext(CartContext)
 export const CartProvider = ({ children }) => {
     const name = "shashank"
 
-    // const [cart, setCart] = useState(() => {
-    //     const savedCart = localStorage.getItem("cart");
-    //     return savedCart ? JSON.parse(savedCart) : [];
-    // });
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem("cart");
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
 
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
     const [search, setSearch] = useState('')
 
-    useEffect(() => {
-        const saved = localStorage.getItem('cart')
-        if (saved) {
-            setCart(JSON.parse(saved))
-        }
-        // return saved ? JSON.parse(saved) : []
-    }, [cart])
-
     // useEffect(() => {
-    //     localStorage.setItem("cart", JSON.stringify(cart));
-    // }, [cart]);
+    //     const saved = localStorage.getItem('cart')
+    //     if (saved) {
+    //         setCart(JSON.parse(saved))
+    //     }
+    //     // return saved ? JSON.parse(saved) : []
+    // }, [cart])
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
 
 
     const addtoCart = (product) => {

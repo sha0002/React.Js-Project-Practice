@@ -7,13 +7,13 @@ const SearchBar = () => {
 
 
     return (
-        <div className='d-flex justify-content-center flex-column py-4 align-items-center'>
+        <div className='d-flex justify-content-center flex-column py-4'>
             <input type="text" name="search" className='w-25' placeholder='Products Search...' onChange={(e) => setSearch(e.target.value)} value={search} />
 
             <div className='position-relative'>
                 {
                     search && (
-                        <ul className='position-absolute bg-light top-100 left-0 ' style={{ zIndex: "1" }}>
+                        <ul className='position-absolute bg-light p-2 rounded-3 m-0' style={{ zIndex: "1" }}>
                             {
                                 filterSearch.length > 0 ? (
                                     filterSearch.map((item) => {
