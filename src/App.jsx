@@ -9,6 +9,9 @@ import { Counter } from './UseContext/Counter'
 import { BioProvider } from './UseContext/ContextPrac'
 import { Ecom } from './E-Commerce/Ecom'
 import { CartProvider } from './E-Commerce/Content/context'
+import { Route, Routes } from 'react-router-dom'
+import Login from './E-Commerce/Cred/Login'
+import Register from './E-Commerce/Cred/Register'
 // import MyComponent from './Todo/Timeset'
 // import TodoAgain from './Todo/Todo-Again'
 // import Posts from './crud system/Posts'
@@ -31,15 +34,31 @@ function App() {
 
       {/* <UseMemo /> */}
 
+      
+
+      {/* -------------Start----------------- */}
+
       {/* <BioProvider>
         <Counter />
       </BioProvider> */}
+      {/* -------------End----------------- */}
 
 
 
-      <CartProvider>
+      {/* -------------Start----------------- */}
+      {/* E-commerce website  */}
+      <Routes>
+        <Route path="/" element={<Ecom />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+
+      {/* <CartProvider>
         <Ecom />
-      </CartProvider>
+      </CartProvider> */}
+      {/* -------------End----------------- */}
+
+
 
 
     </>

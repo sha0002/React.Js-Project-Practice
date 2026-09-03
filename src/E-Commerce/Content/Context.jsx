@@ -1,5 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { products } from "../products";
+import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../FireBase/firebase";
 
 export const CartContext = createContext()
 
@@ -12,22 +15,18 @@ export const CartProvider = ({ children }) => {
         const savedCart = localStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
     });
-
-    // const [cart, setCart] = useState([])
     const [search, setSearch] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-    // useEffect(() => {
-    //     const saved = localStorage.getItem('cart')
-    //     if (saved) {
-    //         setCart(JSON.parse(saved))
-    //     }
-    //     // return saved ? JSON.parse(saved) : []
-    // }, [cart])
+    const navigate = useNavigate()
+
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
+    // Add to Cart System Start
 
     const addtoCart = (product) => {
         // console.log(product)
@@ -56,11 +55,9 @@ export const CartProvider = ({ children }) => {
             localStorage.setItem("cart", JSON.stringify(cart))
         }
     }
+    // Add to Cart System End
 
-    // const searchbar = (e) => {
-    //     setSearch(e.target.value)
-    //     console.log(search)
-    // }
+    // Search System Start
 
     const filterSearch = products.filter((item) => {
         const keyword = search.toLowerCase().trim() || ""
@@ -68,12 +65,63 @@ export const CartProvider = ({ children }) => {
             item.name.toLowerCase().includes(keyword)
         )
     })
+    // Search System End
 
+
+    // Register System Start
+
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        try {
+            const userCredentail = await createUserWithEmailAndPassword(auth, email, password)
+
+            const user = userCredentail.user
+
+            if (user) {
+                console.log(user)
+                setEmail('')
+                setPassword('')
+                navigate('/login')
+                // navigate('/')
+
+            }
+
+        } catch (error) {
+            console.log(error.message)
+            console.log(error.code)
+        }
+    }
+
+    // Register System End
+
+    // login System Start
+
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        try {
+            const existedUser = await signInWithEmailAndPassword(auth, email, password)
+
+            if (existedUser) {
+                console.log(existedUser)
+                setEmail('')
+                setPassword('')
+                navigate('/')
+            }
+
+        } catch (error) {
+            console.log(error.message)
+            console.log(error.code)
+        }
+
+    }
+
+
+    // login System End
 
 
 
     return (
-        <CartContext.Provider value={{ name, addtoCart, cart, deleteCart, search, setSearch, filterSearch }}  >
+        <CartContext.Provider value={{ name, addtoCart, cart, deleteCart, search, setSearch, filterSearch, handleRegister, setEmail, setPassword, email, password, handleLogin }}  >
             {children}
         </CartContext.Provider>
     )
