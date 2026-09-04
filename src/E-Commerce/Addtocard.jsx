@@ -3,7 +3,7 @@ import { useCart } from './Content/context'
 
 const Addtocard = () => {
 
-  const { cart, addtoCart, deleteCart } = useCart()
+  const { cart, addtoCart, deleteCart, user } = useCart()
   return (
     <>
       <div className="container py-4">

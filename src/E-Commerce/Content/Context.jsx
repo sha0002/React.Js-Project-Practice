@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { products } from "../products";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../FireBase/firebase";
 
 export const CartContext = createContext()
@@ -18,6 +18,7 @@ export const CartProvider = ({ children }) => {
     const [search, setSearch] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    // const [user, setUser] = useState(null)
 
     const navigate = useNavigate()
 
@@ -114,14 +115,64 @@ export const CartProvider = ({ children }) => {
         }
 
     }
-
-
     // login System End
+
+
+    // logout System Start
+
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        const userExisted = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            // console.log(user)
+            if (userExisted) {
+                console.log("Logged In: ", currentUser)
+
+            } else {
+                console.log("Logged Out")
+            }
+        })
+
+        return () => userExisted()
+    }, [])
+
+    const handleLogout = async () => {
+        try {
+            await auth.signOut()
+            console.log("logout successfully...")
+            navigate('/login');
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    // const handleLogout = async () => {
+    //     try {
+    //         const user = auth.currentUser;
+
+    //         if (user) {
+    //             console.log("Logout user:", user);
+    //         }
+
+    //         await signOut(auth);
+
+    //         navigate('/login');
+
+    //     } catch (error) {
+    //         console.log(error.message);
+    //         console.log(error.code);
+    //     }
+    // };
+
+    // logout System End
+
 
 
 
     return (
-        <CartContext.Provider value={{ name, addtoCart, cart, deleteCart, search, setSearch, filterSearch, handleRegister, setEmail, setPassword, email, password, handleLogin }}  >
+        <CartContext.Provider value={{ name, addtoCart, cart, deleteCart, search, setSearch, filterSearch, handleRegister, setEmail, setPassword, email, password, handleLogin, handleLogout, user, navigate }}  >
             {children}
         </CartContext.Provider>
     )

@@ -11,10 +11,9 @@ import Login from './Cred/Login'
 
 export const Ecom = () => {
 
-    const { name, addtoCart, cart } = useCart()
+    const { name, addtoCart, cart, handleLogout, user, navigate } = useCart()
     // const { name, addtoCart, cart } = useCart()
     const [loading, setLoading] = useState(true);
-
 
     useEffect(() => {
         console.log(products)
@@ -46,10 +45,25 @@ export const Ecom = () => {
                 <SearchBar />
                 <div>
                     {/* <Link to="/login">Login</Link> */}
-                    <button className='btn btn-dark'>
-                        <Link to="/register" className='text-light text-decoration-none'>Create Account</Link>
-                    </button>
+                    {
+                        user ? (
+                            <>
+                                {/* <p>{user.email}</p> */}
+                                <button className='btn btn-dark' onClick={handleLogout}>
+                                    Logout
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button className='btn btn-dark'>
+                                    <Link to="/login" className='text-light text-decoration-none'>Login</Link>
+                                </button>
+                            </>
+                        )
+                    }
+
                 </div>
+
             </div>
             <div className='container'>
 
@@ -94,7 +108,10 @@ export const Ecom = () => {
                                                     style={{
                                                         backdropFilter: "blur(12px)",
                                                     }}
-                                                    onClick={() => addtoCart(product)}
+                                                    // onClick={() => addtoCart(product)}
+                                                    onClick={() => {
+                                                        user ? (addtoCart(product)) : (navigate('/login'))
+                                                    }}
                                                 >
                                                     Add to cart
                                                     <span className="ms-2">→</span>
