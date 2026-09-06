@@ -6,8 +6,9 @@ import Addtocard from './Addtocard'
 import { useCart } from './Content/context'
 import SearchBar from './SearchBar'
 import { Routes, Route, Link } from "react-router-dom";
-import Login from './Cred/Login'
-// import App from '../App'
+// import Login from './Cred/Login'
+import { FaShoppingCart } from "react-icons/fa";
+
 
 export const Ecom = () => {
 
@@ -39,32 +40,7 @@ export const Ecom = () => {
 
             </div> */}
 
-            <div className='d-flex justify-content-between align-items-center p-2 bg-light mb-3 px-1 px-md-5'>
-                {/* <h1 className='text-light fs-1 text-center mt-4'>Fashion Design {name}</h1> */}
-                <h1 className='text-dark fs-4 text-center'>Fashion Design {name}</h1>
-                <SearchBar />
-                <div>
-                    {/* <Link to="/login">Login</Link> */}
-                    {
-                        user ? (
-                            <>
-                                {/* <p>{user.email}</p> */}
-                                <button className='btn btn-dark' onClick={handleLogout}>
-                                    Logout
-                                </button>
-                            </>
-                        ) : (
-                            <>
-                                <button className='btn btn-dark'>
-                                    <Link to="/login" className='text-light text-decoration-none'>Login</Link>
-                                </button>
-                            </>
-                        )
-                    }
 
-                </div>
-
-            </div>
             <div className='container'>
 
                 <div className="row">

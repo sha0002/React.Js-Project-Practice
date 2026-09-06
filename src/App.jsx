@@ -12,6 +12,8 @@ import { CartProvider } from './E-Commerce/Content/context'
 import { Route, Routes } from 'react-router-dom'
 import Login from './E-Commerce/Cred/Login'
 import Register from './E-Commerce/Cred/Register'
+import Addtocard from './E-Commerce/Addtocard'
+import Navbar from './E-Commerce/Navbar'
 // import MyComponent from './Todo/Timeset'
 // import TodoAgain from './Todo/Todo-Again'
 // import Posts from './crud system/Posts'
@@ -34,7 +36,7 @@ function App() {
 
       {/* <UseMemo /> */}
 
-      
+
 
       {/* -------------Start----------------- */}
 
@@ -47,10 +49,12 @@ function App() {
 
       {/* -------------Start----------------- */}
       {/* E-commerce website  */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Ecom />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Addtocard />} />
       </Routes>
 
       {/* <CartProvider>

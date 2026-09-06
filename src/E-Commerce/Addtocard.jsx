@@ -3,7 +3,7 @@ import { useCart } from './Content/context'
 
 const Addtocard = () => {
 
-  const { cart, addtoCart, deleteCart, user } = useCart()
+  const { cart, addtoCart, deleteCart, user, totalPrice } = useCart()
   return (
     <>
       <div className="container py-4">
@@ -72,9 +72,13 @@ const Addtocard = () => {
                   </div>
                 ))
               }
+              <div className='text-end fs-2 text-light mt-4 pe-4'>
+                Total: ₹ {totalPrice}
+              </div>
             </div>
           )
         }
+
       </div>
     </>
   )

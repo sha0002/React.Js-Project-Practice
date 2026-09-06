@@ -18,12 +18,14 @@ export const CartProvider = ({ children }) => {
     const [search, setSearch] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null)
+    const [cartCount, setCartCount] = useState(0)
 
     const navigate = useNavigate()
 
 
     useEffect(() => {
+        setCartCount(cart.length)
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
@@ -56,6 +58,8 @@ export const CartProvider = ({ children }) => {
             localStorage.setItem("cart", JSON.stringify(cart))
         }
     }
+
+    const totalPrice = cart.reduce((total, item) => total + item.price * item.qty, 0)
     // Add to Cart System End
 
     // Search System Start
@@ -120,7 +124,7 @@ export const CartProvider = ({ children }) => {
 
     // logout System Start
 
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
 
     useEffect(() => {
         const userExisted = onAuthStateChanged(auth, (currentUser) => {
@@ -172,7 +176,7 @@ export const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ name, addtoCart, cart, deleteCart, search, setSearch, filterSearch, handleRegister, setEmail, setPassword, email, password, handleLogin, handleLogout, user, navigate }}  >
+        <CartContext.Provider value={{ name, addtoCart, cart, deleteCart, search, setSearch, filterSearch, handleRegister, setEmail, setPassword, email, password, handleLogin, handleLogout, user, navigate, cartCount, totalPrice }}  >
             {children}
         </CartContext.Provider>
     )
