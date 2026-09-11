@@ -8,22 +8,25 @@ import SearchBar from './SearchBar'
 import { Routes, Route, Link } from "react-router-dom";
 // import Login from './Cred/Login'
 import { FaShoppingCart } from "react-icons/fa";
+import ShoppingBanner from './Banner'
 
 
 export const Ecom = () => {
 
-    const { name, addtoCart, cart, handleLogout, user, navigate } = useCart()
+    const { addtoCart, user, navigate } = useCart()
     // const { name, addtoCart, cart } = useCart()
     const [loading, setLoading] = useState(true);
+
+    const product = products.slice(0, 8);
 
     useEffect(() => {
         console.log(products)
         setTimeout(() => {
-            if (products && products.length) {
+            if (product && product.length) {
                 setLoading(false)
             }
         }, 1000);
-    }, [products])
+    }, [product])
 
 
 
@@ -41,6 +44,8 @@ export const Ecom = () => {
             </div> */}
 
 
+            <ShoppingBanner />
+
             <div className='container'>
 
                 <div className="row">
@@ -52,7 +57,7 @@ export const Ecom = () => {
                             <p className="mt-3 text-light">Loading products...</p>
                         </div>
                     ) : (
-                        products.map((product, index) => {
+                        product.map((product, index) => {
                             return (
                                 <div
                                     className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"

@@ -9,15 +9,28 @@ export default function Navbar() {
     const { handleLogout, user, name, cartCount } = useCart()
 
     return (
-        <div className='d-flex justify-content-between align-items-center p-2 bg-light mb-3 px-1 px-md-5'>
+        <div className='d-flex justify-content-between align-items-center p-2 bg-light px-1 px-md-5'>
             {/* <h1 className='text-light fs-1 text-center mt-4'>Fashion Design {name}</h1> */}
             <Link className='text-dark fs-5 text-center text-decoration-none fw-bold' to={'/'}>Fashion Design {name}</Link>
             <SearchBar />
             <div className='d-flex'>
-                <Link className='me-2 text-dark text-decoration-none fs-4' to="/cart">
+                <Link className='me-3 text-dark text-decoration-none fs-4 position-relative' to={user ? ('/cart') : ('/login')}>
 
                     <FaShoppingCart size={36} />
-                    cart({cartCount})
+                    {/* cart({cartCount}) */}
+                    {/* cart({user ? ({ cartCount }) : (0)}) */}
+                    cart {user ? (<>
+                        <span className="position-absolute top-0 start-100 translate-middle
+                 badge rounded-pill bg-danger
+                 d-flex align-items-center justify-content-center"
+                            style={{
+                                minWidth: "20px",
+                                height: "20px",
+                                fontSize: "11px",
+                                padding: "0 5px",
+                                border: "2px solid white",
+                            }}>{cartCount}</span>
+                    </>) : ('')}
                 </Link>
                 {/* <Link to="/login">Login</Link> */}
                 {

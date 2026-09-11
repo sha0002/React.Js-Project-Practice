@@ -14,6 +14,7 @@ import Login from './E-Commerce/Cred/Login'
 import Register from './E-Commerce/Cred/Register'
 import Addtocard from './E-Commerce/Addtocard'
 import Navbar from './E-Commerce/Navbar'
+import Footer from './E-Commerce/Footer'
 // import MyComponent from './Todo/Timeset'
 // import TodoAgain from './Todo/Todo-Again'
 // import Posts from './crud system/Posts'
@@ -56,6 +57,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Addtocard />} />
       </Routes>
+      <Footer />
 
       {/* <CartProvider>
         <Ecom />
