@@ -8,8 +8,8 @@ import UseMemo from './UseMemo/UseMemo'
 import { Counter } from './UseContext/Counter'
 import { BioProvider } from './UseContext/ContextPrac'
 import { Ecom } from './E-Commerce/Ecom'
-import { CartProvider } from './E-Commerce/Content/context'
-import { Route, Routes } from 'react-router-dom'
+import { CartProvider, useCart } from './E-Commerce/Content/context'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Login from './E-Commerce/Cred/Login'
 import Register from './E-Commerce/Cred/Register'
 import Addtocard from './E-Commerce/Addtocard'
@@ -20,6 +20,15 @@ import Footer from './E-Commerce/Footer'
 // import Posts from './crud system/Posts'
 
 function App() {
+
+  // const { user, navigate } = useCart()
+
+  const location = useLocation()
+
+  const hideHeaderFooter =
+    location.pathname === "/login" ||
+    location.pathname === "/register";
+
 
   return (
 
@@ -50,14 +59,24 @@ function App() {
 
       {/* -------------Start----------------- */}
       {/* E-commerce website  */}
-      <Navbar />
+      {/* <Navbar /> */}
+      {!hideHeaderFooter && <Navbar />}
       <Routes>
-        <Route path="/" element={<Ecom />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route path="/" element={<Ecom />} />
         <Route path="/cart" element={<Addtocard />} />
-      </Routes>
-      <Footer />
+        {/* <Route path="/cart" element={user ? <Addtocard /> : <navigate to="/login" replace />} /> */}
+
+        {/* <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Ecom />} />
+          <Route path="/cart" element={<Addtocard />} />
+        </Route> */}
+
+      </Routes >
+      {/* <Footer /> */}
+      {!hideHeaderFooter && <Footer />}
 
       {/* <CartProvider>
         <Ecom />

@@ -9,7 +9,7 @@ const Register = () => {
     const { handleRegister, setEmail, email, setPassword, password } = useCart()
 
     return (
-        <div className="container mt-5">
+        <div className="container my-5">
             <div className="row justify-content-center">
                 <div className="col-md-5">
                     <div className="card shadow-sm border-0">
@@ -67,10 +67,8 @@ const Register = () => {
                                 </button>
                             </form>
 
-                            <div className='mt-3'>
-                                <p className='text-center'>
-                                    <Link to={'/login'} className='text-center'>Sign In</Link>
-                                </p>
+                            <div className='text-end py-2'>
+                                <span>Already have an Account? <Link to='/login' className='text-decoration-none'>Register</Link></span>
                             </div>
 
                         </div>

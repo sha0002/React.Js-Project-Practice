@@ -1,5 +1,6 @@
 import React from 'react'
 import { useCart } from '../Content/context'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -8,7 +9,7 @@ const Login = () => {
 
     return (
 
-        <div className="container mt-5">
+        <div className="container my-5">
             <div className="row justify-content-center">
                 <div className="col-md-5 col-lg-4">
                     <div className="card shadow-sm border-0">
@@ -49,6 +50,10 @@ const Login = () => {
                                 <button type="submit" className="btn btn-primary w-100">
                                     Login
                                 </button>
+
+                                <div className='text-end py-2'>
+                                    <span>Don't have a Account? <Link to='/register' className='text-decoration-none'>Register</Link></span>
+                                </div>
                             </form>
                         </div>
                     </div>
