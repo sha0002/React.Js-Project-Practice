@@ -138,7 +138,7 @@ export const Ecom = () => {
                     }
                 </div> */}
 
-                <Addtocard />
+                {/* <Addtocard /> */}
             </div>
         </>
     )

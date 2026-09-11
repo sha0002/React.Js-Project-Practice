@@ -32,7 +32,6 @@ export const CartProvider = ({ children }) => {
     // Add to Cart System Start
 
     const addtoCart = (product) => {
-        // console.log(product)
         const existed = cart.find(item => item.id === product.id)
         if (existed) {
             const updateCart = cart.map(item =>
