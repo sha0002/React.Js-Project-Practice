@@ -9,6 +9,7 @@ import { Routes, Route, Link } from "react-router-dom";
 // import Login from './Cred/Login'
 import { FaShoppingCart } from "react-icons/fa";
 import ShoppingBanner from './Banner'
+import { useMemo } from 'react'
 
 
 export const Ecom = () => {
@@ -17,7 +18,8 @@ export const Ecom = () => {
     // const { name, addtoCart, cart } = useCart()
     const [loading, setLoading] = useState(true);
 
-    const product = products.slice(0, 8);
+    // const product = products.slice(0, 8);
+    const product = useMemo(() => products.slice(0, 8)[products])
 
     useEffect(() => {
         console.log(products)
@@ -27,7 +29,6 @@ export const Ecom = () => {
             }
         }, 1000);
     }, [product])
-
 
 
     return (
@@ -45,6 +46,7 @@ export const Ecom = () => {
 
 
             <ShoppingBanner />
+
 
             <div className='container'>
 

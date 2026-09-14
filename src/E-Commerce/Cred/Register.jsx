@@ -6,7 +6,7 @@ import { useCart } from '../Content/context'
 
 const Register = () => {
 
-    const { handleRegister, setEmail, email, setPassword, password } = useCart()
+    const { handleRegister, setEmail, email, setPassword, password, hideshow, setHideShow } = useCart()
 
     return (
         <div className="container my-5">
@@ -51,15 +51,19 @@ const Register = () => {
                                     <label htmlFor="password" className="form-label">
                                         Password
                                     </label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className="form-control"
-                                        placeholder="Enter your password"
-                                    />
+                                    <div className='position-relative'>
+
+                                        <input
+                                            type={hideshow ? "password" : "text"}
+                                            name="password"
+                                            id="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            className="form-control"
+                                            placeholder="Enter your password"
+                                        />
+                                        <button type='button' onClick={() => setHideShow(!hideshow)} className='position-absolute btn btn-primary top-0' style={{ left: "90%" }}>{hideshow ? "show" : "hide"}</button>
+                                    </div>
                                 </div>
 
                                 <button type="submit" className="btn btn-primary w-100">

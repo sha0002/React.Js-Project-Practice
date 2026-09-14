@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCart } from '../Content/context'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
 
-    const { handleLogin, setEmail, setPassword, email, password } = useCart()
+    const { handleLogin, setEmail, setPassword, email, password,hideshow,setHideShow } = useCart()
+
+
+    // const handleShow = () => {
+    //     setHideShow(!hideshow)
+    // }
 
 
     return (
@@ -36,15 +41,20 @@ const Login = () => {
                                     <label htmlFor="password" className="form-label">
                                         Password
                                     </label>
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        id="password"
-                                        name="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="Enter your password"
-                                    />
+                                    <div className='position-relative'>
+                                        <input
+                                            type={hideshow ? ("text") : ("password")}
+                                            className="form-control"
+                                            id="password"
+                                            name="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            placeholder="Enter your password"
+                                        />
+                                        <button type='button' onClick={() => setHideShow(!hideshow)} className='position-absolute btn btn-primary top-0' style={{ left: "85%" }}>{hideshow ? "hide" : "show"}</button>
+                                    </div>
+                                    {/* <div> */}
+                                    {/* </div> */}
                                 </div>
 
                                 <button type="submit" className="btn btn-primary w-100">
