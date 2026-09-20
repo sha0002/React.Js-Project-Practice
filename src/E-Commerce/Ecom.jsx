@@ -18,8 +18,8 @@ export const Ecom = () => {
     // const { name, addtoCart, cart } = useCart()
     const [loading, setLoading] = useState(true);
 
-    const product = products.slice(0, 8);
-    // const product = useMemo(() => products.slice(0, 8)[products])
+    // const product = products.slice(0, 8);
+    const product = useMemo(() => products.slice(0, 8), [products])
 
     useEffect(() => {
         console.log(products)
@@ -29,6 +29,7 @@ export const Ecom = () => {
             }
         }, 1000);
     }, [product])
+   
 
 
     return (
