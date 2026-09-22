@@ -15,14 +15,13 @@ export default function Navbar() {
             <SearchBar />
             <div className='d-flex'>
                 <Link className='me-3 text-dark text-decoration-none fs-4 position-relative' to={user ? ('/cart') : ('/login')}>
-
                     <FaShoppingCart size={36} />
                     {/* cart({cartCount}) */}
                     {/* cart({user ? ({ cartCount }) : (0)}) */}
                     cart {user ? (<>
                         <span className="position-absolute top-0 start-100 translate-middle
-                 badge rounded-pill bg-danger
-                 d-flex align-items-center justify-content-center"
+                                badge rounded-pill bg-danger
+                                d-flex align-items-center justify-content-center"
                             style={{
                                 minWidth: "20px",
                                 height: "20px",

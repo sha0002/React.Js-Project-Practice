@@ -54,7 +54,7 @@ const Register = () => {
                                     <div className='position-relative'>
 
                                         <input
-                                            type={hideshow ? "password" : "text"}
+                                            type={!hideshow ? "password" : "text"}
                                             name="password"
                                             id="password"
                                             value={password}
@@ -62,7 +62,7 @@ const Register = () => {
                                             className="form-control"
                                             placeholder="Enter your password"
                                         />
-                                        <button type='button' onClick={() => setHideShow(!hideshow)} className='position-absolute btn btn-primary top-0' style={{ left: "90%" }}>{hideshow ? "show" : "hide"}</button>
+                                        <button type='button' onClick={() => setHideShow(!hideshow)} className='position-absolute btn btn-primary top-0' style={{ left: "90%" }}>{!hideshow ? "show" : "hide"}</button>
                                     </div>
                                 </div>
 

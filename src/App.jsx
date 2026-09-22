@@ -59,8 +59,8 @@ function App() {
 
       {/* -------------Start----------------- */}
       {/* E-commerce website  */}
-      {/* <Navbar /> */}
-      {!hideHeaderFooter && <Navbar />}
+      <Navbar />
+      {/* {!hideHeaderFooter && <Navbar />} */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
