@@ -1,23 +1,12 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Todo from './todo/Todo'
-import Posts from './crud/Posts'
-import Cal from './calculator/Cal'
-import Todos from './todos/todos'
-import UseMemo from './UseMemo/UseMemo'
-import { Counter } from './UseContext/Counter'
-import { BioProvider } from './UseContext/ContextPrac'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Ecom } from './ecommerce/Ecom'
-import Login from './ecommerce/Cred/Login'
-import Register from './ecommerce/Cred/Register'
 import Addtocard from './ecommerce/Addtocard'
 import Footer from './ecommerce/Footer'
 import Navbar from './ecommerce/Navbar'
-// import MyComponent from './todo/Timeset'
-// import TodoAgain from './todo/Todo-Again'
-// import Posts from './crud system/Posts'
-
+import Login from './ecommerce/Cred/Login'
+import Register from './ecommerce/Cred/Register'
 function App() {
 
   // const { user, navigate } = useCart()
@@ -31,32 +20,8 @@ function App() {
 
   return (
 
-    <>
 
-      {/* Todo list */}
-
-      {/* <Todo /> */}
-      {/* <TodoAgain /> */}
-      {/* Crud Operator */}
-      {/* <Posts /> */}
-      {/* <Cal /> */}
-
-      {/* <Todos /> */}
-
-      {/* <UseMemo /> */}
-
-
-
-      {/* -------------Start----------------- */}
-
-      {/* <BioProvider>
-        <Counter />
-      </BioProvider> */}
-      {/* -------------End----------------- */}
-
-
-
-      {/* -------------Start----------------- */}
+    <> {/* -------------Start----------------- */}
       {/* E-commerce website  */}
       <Navbar />
       {/* {!hideHeaderFooter && <Navbar />} */}
