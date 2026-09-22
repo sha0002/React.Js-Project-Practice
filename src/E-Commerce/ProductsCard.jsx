@@ -43,21 +43,7 @@ function ProductsCard({ product, loading }) {
                                     </p>
 
                                     <div>
-                                        {/* <button
-                                            className="btn text-dark fw-semibold px-4 py-3 rounded-4 border border-white border-opacity-25 bg-white bg-opacity-10 shadow-lg"
-                                            style={{
-                                                backdropFilter: "blur(12px)",
-                                            }}
-                                            // onClick={() => addtoCart(product)}
-                                            onClick={() => {
-                                                user ? (addtoCart(product)) : (navigate('/login'))
-                                            }}
-                                        >
-                                            Add to cart
-                                            <span className="ms-2">→</span>
-                                        </button> */}
-
-                                        <Button product={product}  />
+                                        <Button product={product} />
                                     </div>
                                 </div>
                             </div>
@@ -69,4 +55,4 @@ function ProductsCard({ product, loading }) {
     )
 }
 
-export default ProductsCard
+export default ProductsCard;

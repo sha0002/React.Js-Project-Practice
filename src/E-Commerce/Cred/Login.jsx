@@ -6,12 +6,6 @@ const Login = () => {
 
     const { handleLogin, setEmail, setPassword, email, password,hideshow,setHideShow } = useCart()
 
-
-    // const handleShow = () => {
-    //     setHideShow(!hideshow)
-    // }
-
-
     return (
 
         <div className="container my-5">

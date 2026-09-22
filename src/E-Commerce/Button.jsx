@@ -12,7 +12,6 @@ export default function Button({ product }) {
             style={{
                 backdropFilter: "blur(12px)",
             }}
-            // onClick={() => addtoCart(product)}
             onClick={() => {
                 user ? (addtoCart(product)) : (navigate('/login'))
             }}

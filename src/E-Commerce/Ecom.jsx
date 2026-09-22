@@ -14,12 +14,8 @@ import ProductsCard from './ProductsCard'
 
 
 export const Ecom = () => {
-
-    const { addtoCart, user, navigate } = useCart()
-    // const { name, addtoCart, cart } = useCart()
     const [loading, setLoading] = useState(true);
 
-    // const product = products.slice(0, 8);
     const product = useMemo(() => products.slice(0, 8), [products])
 
     useEffect(() => {
@@ -36,26 +32,9 @@ export const Ecom = () => {
     return (
 
         <>
-            {/* <div>
-
-             
-                <div>
-                    <Link to="/login">Login</Link><br></br>
-                    <Link to="/register">Create Account</Link>
-                </div>
-
-            </div> */}
-
-
             <ShoppingBanner />
-
-
             <div className='container'>
-
-
-                <ProductsCard product={product} loading={loading} />
-
- 
+                <ProductsCard product={product} loading={loading} /> 
             </div>
         </>
     )
