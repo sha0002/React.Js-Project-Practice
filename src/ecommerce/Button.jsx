@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCart } from './Content/context'
+import { useCart } from './content/context'
 
 export default function Button({ product }) {
 

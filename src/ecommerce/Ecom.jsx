@@ -3,7 +3,6 @@ import { products } from './products'
 // import Addtocard from './Addtocard'
 import Button from './Button'
 import Addtocard from './Addtocard'
-import { useCart } from './Content/context'
 import SearchBar from './SearchBar'
 import { Routes, Route, Link } from "react-router-dom";
 // import Login from './Cred/Login'

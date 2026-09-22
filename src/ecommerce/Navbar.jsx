@@ -1,8 +1,8 @@
 import React from 'react'
-import { useCart } from './Content/context'
 import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa'
+import { useCart } from './content/context'
 
 export default function Navbar() {
 

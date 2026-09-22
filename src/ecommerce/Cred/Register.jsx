@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../FireBase/firebase'
-import { useCart } from '../Content/context'
+import { useCart } from '../content/context'
 
 const Register = () => {
 

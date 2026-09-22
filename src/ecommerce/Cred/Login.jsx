@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useCart } from '../Content/context'
 import { Link } from 'react-router-dom'
+import { useCart } from '../content/context'
 
 const Login = () => {
 
