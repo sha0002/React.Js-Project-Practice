@@ -70,7 +70,10 @@ const SearchBar = () => {
                                                 Add to cart
                                                 <span className="ms-2">→</span>
                                             </button> */}
-                                            <Button product={item}/>
+                                            {
+                                                user ? (<Button product={item}/>):(<p>user not login</p>)
+                                            }
+                                            
                                         </div>
                                     </li>
                                 );
