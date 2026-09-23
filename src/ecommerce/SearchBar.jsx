@@ -1,9 +1,10 @@
 import React from 'react'
 import { useCart } from './content/context'
+import Button from './Button'
 
 const SearchBar = () => {
 
-    const { search, setSearch, filterSearch, addtoCart } = useCart()
+    const { search, setSearch, filterSearch, addtoCart, user } = useCart()
 
 
     return (
@@ -59,7 +60,7 @@ const SearchBar = () => {
 
                                         {/* Button */}
                                         <div className="col-12">
-                                            <button
+                                            {/* <button
                                                 className="btn btn-sm text-dark fw-semibold rounded-3 border border-white border-opacity-25 bg-white bg-opacity-10 shadow-sm w-100"
                                                 style={{
                                                     backdropFilter: "blur(12px)",
@@ -68,7 +69,8 @@ const SearchBar = () => {
                                             >
                                                 Add to cart
                                                 <span className="ms-2">→</span>
-                                            </button>
+                                            </button> */}
+                                            <Button product={item}/>
                                         </div>
                                     </li>
                                 );
