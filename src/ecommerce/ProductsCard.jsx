@@ -23,6 +23,7 @@ function ProductsCard({ product, loading }) {
                                 <img
                                     src={product.image}
                                     alt={product.name}
+                                    loading='lazy'
                                     className="card-img-top img-fluid"
                                     style={{
                                         height: "250px",

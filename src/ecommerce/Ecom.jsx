@@ -28,12 +28,14 @@ export const Ecom = () => {
 
 
 
+
     return (
 
         <>
             <ShoppingBanner />
+           
             <div className='container'>
-                <ProductsCard product={product} loading={loading} /> 
+                <ProductsCard product={product} loading={loading} />
             </div>
         </>
     )
